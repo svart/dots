@@ -1,0 +1,19 @@
+[user]
+	email = dimashink@gmail.com
+	name = Dmitry Shinkaruk
+
+[alias]
+  lg =  log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset %Cblue[%aN]%Creset' --abbrev-commit --date=relative
+
+[core]
+    pager = delta
+
+[delta]
+    plus-color = "#012800"
+    minus-color = "#340001"
+    syntax-theme = Monokai Extended
+    line-numbers = true
+    side-by-side = true
+
+[interactive]
+    diffFilter = delta --color-only
