@@ -178,7 +178,14 @@ wk.register(
 },
 { prefix = '<leader>' })
 
+-- NeoGit
 require('neogit').setup {}
+wk.register(
+{
+  ['g'] = { name = '+git' },
+	['gg'] = { '<cmd>Neogit<CR>', 'Git status' },
+},
+{ prefix = '<leader>' })
 
 -- Telescope
 require('telescope').setup {
