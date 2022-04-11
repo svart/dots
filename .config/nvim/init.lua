@@ -184,6 +184,7 @@ wk.register(
 {
   ['g'] = { name = '+git' },
 	['gg'] = { '<cmd>Neogit<CR>', 'Git status' },
+	['gB'] = { '<cmd>Git blame<CR>', 'Git blame' },
 },
 { prefix = '<leader>' })
 
