@@ -252,3 +252,6 @@ exec ~/.cargo/bin/setwall random ~/Изображения/walls -c sway -o LVDS-
 bindsym Ctrl+Alt+A exec flameshot gui
 
 include /etc/sway/config.d/*
+
+default_border none
+exec swaymsg border none
