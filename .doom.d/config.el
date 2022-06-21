@@ -19,7 +19,7 @@
 ;;
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
-(setq doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 16 :weight 'regular))
+(setq doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 14 :weight 'regular))
        ;; doom-variable-pitch-font (font-spec :family "Noto Serif" :size 13))
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
@@ -73,6 +73,13 @@
         ("POSTPONED" . "#008080")
         ))
 )
+(setq org-capture-templates
+      '(("t" "Todo" entry (file+headline "notes.org" "Tasks")
+         "* TODO %?\n %i %a" :empty-lines 1)
+        ("n" "Note" entry (file+headline "notes.org" "Notes")
+         "* %?\n %i %a" :emptry-lines 1)
+       )
+)
 (setq org-roam-directory "~/org/roam")
 
 (setq projectile-project-search-path '("~/Work"))
@@ -87,6 +94,13 @@
 
 (map! :leader
       (:prefix "c"
-       :desc "Comment or uncomment lines" ";" #'evilnc-comment-or-uncomment-lines
+       :desc "Comment or uncomment lines"  ";" #'evilnc-comment-or-uncomment-lines
+       :desc "Open code structure sidebar" "u" #'lsp-ui-imenu
        )
+)
+
+(map! :after evil-org
+      :map evil-org-mode-map
+      :localleader
+      :desc "Insert structured template" :nv "S" #'org-insert-structure-template
 )
