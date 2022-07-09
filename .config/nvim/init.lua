@@ -197,6 +197,14 @@ require('telescope').setup {
         ['<C-d>'] = false,
       },
     },
+    layout_config = {
+      vertical = { width = 0.9 }
+    },
+  },
+  pickers = {
+    find_files = {
+      theme = "ivy",
+    }
   },
 }
 
