@@ -1,5 +1,5 @@
 window:
-  opacity: 0.8
+  opacity: 0.9
 
 key_bindings:
     - { key: F11,                   action: ToggleFullscreen }
@@ -9,8 +9,8 @@ key_bindings:
 font:
     normal:
         family: JetBrainsMono Nerd Font
-          #    size: 13.5
-    size: 13
+    # size: 10
+    size: 13.5
     offset:
         x: 0
         y: 1
@@ -471,10 +471,10 @@ selection:
 #   - (macOS) /bin/bash --login
 #   - (Linux/BSD) user login shell
 #   - (Windows) powershell
-#shell:
-#  program: /bin/bash
-#  args:
-#    - --login
+shell:
+  program: /bin/bash
+  args:
+    - --login
 
 # Startup directory
 #
