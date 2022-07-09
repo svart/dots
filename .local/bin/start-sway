@@ -7,7 +7,10 @@ export XDG_SESSION_DESKTOP=sway
 export MOZ_WEBRENDER=1
 export MOZ_ENABLE_WAYLAND=1
 
+export XDG_DATA_DIRS=$XDG_DATA_DIRS:$HOME/.nix-profile/share
+
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export FZF_DEFAULT_OPTS='--preview="bat --color=always --style=numbers --line-range=:500 {}"'
+
 
 exec sway
