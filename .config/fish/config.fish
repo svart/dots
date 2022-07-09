@@ -1,5 +1,3 @@
-set -gx PATH /home/svart/.emacs.d/bin /home/svart/.cargo/bin $PATH
-
 starship init fish | source
 
 alias gst="git status"
