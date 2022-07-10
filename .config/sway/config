@@ -247,7 +247,7 @@ bar {
 
 bindsym Mod4+Ctrl+l exec swaylock -c 000000
 
-exec ~/.cargo/bin/setwall random ~/Изображения/walls -c sway -o LVDS-1 -o HDMI-A-1 -k
+exec ~/.cargo/bin/setwall random ~/Pictures/walls -c sway -o LVDS-1 -o HDMI-A-1 -k
 
 bindsym Ctrl+Alt+A exec flameshot gui
 
