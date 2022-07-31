@@ -4,10 +4,10 @@
     "height": 10,
     "modules-left": ["sway/workspaces"],
     "modules-center": [],
-    "modules-right": ["tray", "pulseaudio", "network", "temperature", "cpu", "memory", "battery", "clock"],
+    "modules-right": ["tray", "sway/language", "pulseaudio", "network", "temperature", "cpu", "memory", "battery", "clock"],
     "sway/workspaces": {
         "disable-scroll": true,
-        "disable-click": true,
+        "disable-click": false,
     },
     "tray": {
         "spacing": 1,
@@ -50,4 +50,8 @@
         },
         "on-click": "pavucontrol"
     },
+    "sway/language": {
+        "format": "{short}",
+	"spacing": 5,
+    }
 }
