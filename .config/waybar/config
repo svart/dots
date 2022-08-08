@@ -13,7 +13,6 @@
         "spacing": 1,
     },
     "clock": {
-        "locale": "C",
         "format": "{:%a %Y-%m-%d %H:%M}",
     },
     "cpu": {
