@@ -2,7 +2,7 @@
 
 ### Variables
 #
-# Logo key. Use Mod1 for Alt.
+# Logo key. Use Mod1 for Alt. Mod4 - super
 set $mod Mod4
 
 # Home row direction keys, like vim
@@ -150,6 +150,10 @@ input * {
     bindsym $mod+Shift+0 move container to workspace number 10
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
+
+    # Move to next/prev workspace
+    bindsym $mod+Next workspace next
+    bindsym $mod+Prior workspace prev
 #
 # Layout stuff:
 #
