@@ -4,13 +4,42 @@
     "height": 10,
     "modules-left": ["sway/workspaces"],
     "modules-center": [],
-    "modules-right": ["tray", "sway/language", "pulseaudio", "network", "temperature", "cpu", "memory", "battery", "clock"],
+    "modules-right": [
+        "tray",
+        "sway/language",
+        "pulseaudio",
+        "network",
+        "temperature",
+        "cpu",
+        "memory",
+        "battery",
+        "clock"
+    ],
     "sway/workspaces": {
         "disable-scroll": true,
         "disable-click": false,
-    },
+		"all-outputs": true,
+		"format": "{icon} {name}",
+		"format-icons": {
+			"1:term": "",
+			"2:dev": "",
+			"3:www": "",
+			"4:chat": "#",
+			"5:mail": "",
+			"urgent": "",
+			"focused": "",
+			"default": ""
+		},
+		"persistent_workspaces": {
+			"1:term": [],
+			"2:dev": [],
+			"3:www": [],
+			"4:chat": [],
+			"5:mail": []
+		}
+	},
     "tray": {
-        "spacing": 1,
+        "spacing": 2,
     },
     "clock": {
         "format": "{:%a %Y-%m-%d %H:%M}",
@@ -33,7 +62,7 @@
             "warning": 20,
             "critical": 10
         },
-        "format": "{icon} {capacity}%",
+        "format": "{icon}  {capacity}%",
         "format-icons": ["", "", "", "", ""]
     },
     "network": {
@@ -51,7 +80,6 @@
         "on-click": "pavucontrol"
     },
     "sway/language": {
-        "format": "{short}",
-	"spacing": 5,
+        "format": "{short}"
     }
 }
