@@ -1,3 +1,3 @@
 function vpnin
-sudo networkctl up wg0
+sudo networkctl up wg-$argv[1]
 end
