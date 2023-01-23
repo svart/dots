@@ -105,26 +105,16 @@ input * {
 # Moving around:
 #
     # Move your focus around
-    bindsym $mod+$left focus left
-    bindsym $mod+$down focus down
-    bindsym $mod+$up focus up
+    bindsym $mod+$left  focus left
+    bindsym $mod+$down  focus down
+    bindsym $mod+$up    focus up
     bindsym $mod+$right focus right
-    # Or use $mod+[up|down|left|right]
-    bindsym $mod+Left focus left
-    bindsym $mod+Down focus down
-    bindsym $mod+Up focus up
-    bindsym $mod+Right focus right
 
     # Move the focused window with the same, but add Shift
-    bindsym $mod+Shift+$left move left
-    bindsym $mod+Shift+$down move down
-    bindsym $mod+Shift+$up move up
+    bindsym $mod+Shift+$left  move left
+    bindsym $mod+Shift+$down  move down
+    bindsym $mod+Shift+$up    move up
     bindsym $mod+Shift+$right move right
-    # Ditto, with arrow keys
-    bindsym $mod+Shift+Left move left
-    bindsym $mod+Shift+Down move down
-    bindsym $mod+Shift+Up move up
-    bindsym $mod+Shift+Right move right
 #
 # Workspaces:
 #
@@ -160,8 +150,9 @@ input * {
     bindsym $mod+Shift+0 move container to workspace number 10
 
     # Move to next/prev workspace
-    bindsym $mod+Next workspace next
+    bindsym $mod+Next  workspace next
     bindsym $mod+Prior workspace prev
+    bindsym $mod+Tab   workspace back_and_forth
 #
 # Layout stuff:
 #
@@ -225,45 +216,46 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 #
-# Special commands
-#
-    bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
-    bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
-    bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
-    bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
-    bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
-    bindsym XF86MonBrightnessUp exec brightnessctl set +5%
-    bindsym XF86AudioPlay exec playerctl play-pause
-    bindsym XF86AudioNext exec playerctl next
-    bindsym XF86AudioPrev exec playerctl previous
-#    bindsym XF86Search exec bemenu-run
+# Media keys
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym XF86MonBrightnessUp exec brightnessctl set +5%
+# bindsym XF86Display
+# bindsym XF86WLAN
+# bindsym XF86NotificationCenter
+# bindsym XF86PickupPhone
+# bindsym XF86HangupPhone
+# bindsym XF86Favorites
+# bindsym XF86SelectiveScreenshot # Fn+PrtSc
+# bindsym XF86Sleep # Fn+4
+# bindsym XF86AudioPlay exec playerctl play-pause
+# bindsym XF86AudioNext exec playerctl next
+# bindsym XF86AudioPrev exec playerctl previous
 
 #
 # Status Bar:
-#
-# Read `man 5 sway-bar` for more information about this section.
 bar {
-    position top
-
-    # When the status_command prints a new line to stdout, swaybar updates.
-    # The default just shows the current date and time.
-    #status_command while date +'%a %Y-%m-%d %H:%M:%S'; do sleep 1; done
     swaybar_command waybar
-
-    colors {
-        statusline #ffffff
-        background #323232
-        inactive_workspace #32323200 #32323200 #5c5c5c
-    }
 }
 
+#
+# Lock screen
 bindsym Mod4+Ctrl+l exec swaylock -c 000000
 
+#
+# Set random wallpaper on startup
 exec ~/.cargo/bin/setwall random ~/Pictures/walls -c sway -o $laptop -o HDMI-A-1 -k
 
+#
+# Screenshot tool
 bindsym Ctrl+Alt+A exec flameshot gui
 
 include /etc/sway/config.d/*
 
+#
+# Remove borders from all windows
 default_border none
 exec swaymsg border none
