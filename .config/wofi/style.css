@@ -1,7 +1,12 @@
+* {
+  font-family: "JetBrainsMono Nerd Font";
+  font-size: 18px;
+}
+
 window {
     margin: 5px;
     border: 2px solid white;
-    background-color: rgba(44,62,80,0.8);
+    background-color: rgba(44,62,80,0.7);
     /* background: transparent; */
     /* background: transparent; */
 }
