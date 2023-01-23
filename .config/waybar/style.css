@@ -2,7 +2,7 @@
   border: none;
   border-radius: 0;
   font-family: "JetBrainsMono Nerd Font";
-  font-size: 13px;
+  font-size: 18px;
   min-height: 0;
 }
 
@@ -16,11 +16,9 @@ window#waybar {
   margin-top: 5px;
 }
 
-/*
 #workspaces {
     padding: 0 5px;
 }
-*/
 
 #workspaces button {
   padding: 0 5px;
@@ -35,8 +33,6 @@ window#waybar {
 }
 
 #tray,
-#custom-japan,
-#custom-germany,
 #temperature,
 #clock,
 #battery,
