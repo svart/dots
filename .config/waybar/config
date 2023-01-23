@@ -18,26 +18,26 @@
     "sway/workspaces": {
         "disable-scroll": true,
         "disable-click": false,
-		"all-outputs": true,
-		"format": "{icon} {name}",
-		"format-icons": {
-			"1:term": "",
-			"2:dev": "",
-			"3:www": "",
-			"4:chat": "#",
-			"5:mail": "",
-			"urgent": "",
-			"focused": "",
-			"default": ""
-		},
-		"persistent_workspaces": {
-			"1:term": [],
-			"2:dev": [],
-			"3:www": [],
-			"4:chat": [],
-			"5:mail": []
-		}
-	},
+        "all-outputs": true,
+        "format": "{icon} {name}",
+        "format-icons": {
+            "1:term": "",
+            "2:dev": "",
+            "3:www": "",
+            "4:chat": "#",
+            "5:mail": "",
+            "urgent": "",
+            "focused": "",
+            "default": ""
+        },
+        "persistent_workspaces": {
+            "1:term": [],
+            "2:dev": [],
+            "3:www": [],
+            "4:chat": [],
+            "5:mail": []
+        }
+    },
     "tray": {
         "spacing": 2,
     },
