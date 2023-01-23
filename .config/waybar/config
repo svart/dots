@@ -73,8 +73,8 @@
         "format": "{icon}  {capacity}% - {time}",
         "format-icons": ["", "", "", "", ""],
         "format-time": "{H}h{M}m",
-        "format-charging": " {icon}  {capacity}% - {time}",
-        "format-full": " {icon} Charged",
+        "format-charging": "{icon}   {capacity}% - {time}",
+        "format-full": "{icon}   full",
         "interval": 60
     },
 
