@@ -208,9 +208,6 @@ require('telescope').setup {
   },
 }
 
--- Enable telescope fzf native
-require('telescope').load_extension 'fzf'
-
 --Add leader shortcuts
 -- vim.api.nvim_set_keymap('n', '<leader><space>', [[<cmd>lua require('telescope.builtin').buffers()<CR>]], { noremap = true, silent = true })
 -- vim.api.nvim_set_keymap('n', '<leader>sf', [[<cmd>lua require('telescope.builtin').find_files({previewer = false})<CR>]], { noremap = true, silent = true })
@@ -361,7 +358,7 @@ cmp.setup {
 
 -- nvim-cmp supports additional completion capabilities
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 -- Example custom server
 -- Make runtime files discoverable to the server
