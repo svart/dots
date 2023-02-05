@@ -55,7 +55,7 @@
 ;; they are implemented.
 
 ;; Linux kernel style works pretty well everywhere
-(setq-default tab-width 8)
+(setq-default tab-width 4)
 
 ;; Change local leader key to ","
 (setq doom-localleader-key ",")
@@ -66,17 +66,27 @@
 (setq org-directory "~/org")
 (setq org-default-notes-file (concat org-directory "/notes.org"))
 (after! org
-  (setq org-todo-keywords '(
-        (sequence "TODO(t)" "IN-PROGRESS(s)" "IDEA(i)" "PROBLEM(p)" "WAITING(w)" "|" "DONE(x)" "DELEGATED(d)" "POSTPONED(P)" "CANCELED(c)")
-        ))
-  (setq org-todo-keyword-faces '(
-        ("IN-PROGRESS" . "orange")
-        ("WAITING" . "purple")
-        ("PROBLEM" . "red")
-        ("CANCELED" . "grey")
-        ("DELEGATED" . "pink")
-        ("POSTPONED" . "#008080")
-        ))
+  (setq org-todo-keywords
+        '((sequence
+           "TODO(t)"
+           "IN-PROGRESS(s)"
+           "IDEA(i)"
+           "PROBLEM(p)"
+           "WAITING(w)"
+           "DELEGATED(d)"
+           "POSTPONED(P)"
+           "|"
+           "DONE(x)"
+           "CANCELED(c)"))
+        org-todo-keyword-faces
+        '(("IN-PROGRESS" . "orange")
+          ("WAITING" . "purple")
+          ("PROBLEM" . "red")
+          ("CANCELED" . "grey")
+          ("DELEGATED" . "pink")
+          ("POSTPONED" . "#008080"))
+        org-hide-emphasis-markers t
+  )
 )
 (setq org-capture-templates
       '(("t" "Todo" entry (file+headline "notes.org" "Tasks")
