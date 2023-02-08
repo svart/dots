@@ -39,10 +39,11 @@ window#waybar {
 #cpu,
 #memory,
 #network,
+#backlight,
 #pulseaudio {
   padding: 0 5px;
   margin-right: 5px;
-  /*margin-top: 5px;*/
+  margin-left: 5px;
 }
 
 #temperature.critical {
@@ -74,4 +75,8 @@ window#waybar {
 
 #network.disconnected {
 /*  background: #f53c3c; */
+}
+
+#language {
+  min-width: 35px
 }

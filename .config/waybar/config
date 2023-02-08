@@ -8,13 +8,21 @@
     "modules-right": [
         "tray",
         "sway/language",
+        "custom/separator",
         "pulseaudio",
+        "custom/separator",
         "backlight",
+        "custom/separator",
         "network",
+        "custom/separator",
         "temperature",
+        "custom/separator",
         "cpu",
+        "custom/separator",
         "memory",
+        "custom/separator",
         "battery",
+        "custom/separator",
         "clock"
     ],
 
@@ -42,8 +50,14 @@
         }
     },
 
+    "custom/separator": {
+        "format": "|",
+        "interval": "once",
+        "tooltip": false
+    },
+
     "tray": {
-        "spacing": 2,
+        "spacing": 5,
     },
 
     "clock": {
@@ -61,7 +75,7 @@
     },
 
     "memory": {
-        "format": " {}%"
+        "format": " {}%",
     },
 
     "temperature": {
@@ -92,7 +106,7 @@
 
     "pulseaudio": {
         "format": "{icon} {volume}%",
-        "format-bluetooth": " {icon:2} {volume:4}% - {desc}",
+        "format-bluetooth": " {icon} {volume}%",
         "format-muted": "󰖁",
         "format-icons": {
             "headphone": [" ", " ", " "],
@@ -107,8 +121,6 @@
 
     "backlight": {
         "format": "{icon} {percent}%",
-        "format-alt": "{percent}% {icon}",
         "format-icons": ["󱩎", "󱩏", "󱩐", "󱩑", "󱩒", "󱩓", "󱩔", "󱩕", "󱩖", "󰛨"]
-
     }
 }
