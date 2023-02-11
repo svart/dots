@@ -10,10 +10,10 @@ font:
     normal:
         family: JetBrainsMono Nerd Font
     # size: 10
-    size: 17
-    offset:
-        x: 0
-        y: 1
+    size: 20
+    # offset:
+    #     x: 0
+    #     y: 1
 
 # Colors (Solarized Dark)
 colors:
