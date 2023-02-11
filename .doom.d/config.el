@@ -19,8 +19,8 @@
 ;;
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
-;; (setq doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 21 :weight 'regular)
-(setq doom-font (font-spec :family "FiraCode Nerd Font Mono" :size 21 :weight 'regular :style 'retina)
+(setq doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 21 :weight 'regular)
+;; (setq doom-font (font-spec :family "FiraCode Nerd Font Mono" :size 21 :weight 'regular :style 'retina)
       doom-variable-pitch-font (font-spec :family "FreeSerif" :size 21)
       doom-big-font (font-spec :family "FiraCode Nerd Font Mono" :size 35))
 (after! doom-theme
@@ -110,8 +110,9 @@
 (map! :leader
       (:prefix "c"
        :desc "Comment or uncomment lines"  ";" #'evilnc-comment-or-uncomment-lines
-       :desc "Open code structure sidebar" "u" #'lsp-ui-imenu
-       )
+       :desc "Open code structure sidebar" "u" #'lsp-ui-imenu)
+      (:prefix "f"
+       :desc "New file" "n" #'dired-create-empty-file)
 )
 
 (map! :after evil-org
