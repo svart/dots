@@ -1,0 +1,10 @@
+width=1200
+height=800
+prompt=...
+allow_images=true
+allow_markup=true
+term=alacritty
+insensitive=true
+key_up=Control_L-k
+key_down=Control_L-j
+dynamic_lines=true
