@@ -5,7 +5,6 @@
 
 window {
     margin: 5px;
-    border: 2px solid white;
     background-color: rgba(57,62,70,0.8);
 }
 
@@ -34,7 +33,6 @@ window {
 }
 
 #entry:selected {
-    /* background-color: rgba(2,44,67,0.3); */
     background-color: rgba(57,62,70,0.3);
 }
 
