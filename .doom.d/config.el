@@ -31,6 +31,7 @@
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
 (setq doom-theme 'doom-solarized-light)
+;; (setq doom-theme 'doom-one)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -54,7 +55,6 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
-;; Linux kernel style works pretty well everywhere
 (setq-default tab-width 4)
 
 ;; Change local leader key to ","
@@ -63,7 +63,8 @@
 
 ;; orgmode configuration
 ;; Default directory for storing org files
-(setq org-directory "~/org")
+(setq org-directory "~/Documents/org")
+(setq org-roam-directory "~/Documents/org/roam")
 (setq org-default-notes-file (concat org-directory "/notes.org"))
 (after! org
   (setq org-todo-keywords
@@ -95,9 +96,8 @@
          "* %?\n %i %a" :emptry-lines 1)
        )
 )
-(setq org-roam-directory "~/org/roam")
 
-(setq projectile-project-search-path '("~/Work"))
+(setq projectile-project-search-path '("~/work"))
 
 ;; Make evil-search-word look for symbol rather than word boundaries
 (with-eval-after-load 'evil
@@ -106,13 +106,15 @@
 )
 
 (setq lsp-rust-server 'rust-analyzer)
+(setq lsp-rust-analyzer-display-chaining-hints t)
+(setq lsp-rust-analyzer-binding-mode-hints t)
 
 (map! :leader
       (:prefix "c"
        :desc "Comment or uncomment lines"  ";" #'evilnc-comment-or-uncomment-lines
        :desc "Open code structure sidebar" "u" #'lsp-ui-imenu)
       (:prefix "f"
-       :desc "New file" "n" #'dired-create-empty-file)
+       :desc "New file" "n" #'dired-create-empty-file) ;; TODO: open this file after creation
 )
 
 (map! :after evil-org
