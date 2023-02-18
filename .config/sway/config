@@ -63,6 +63,9 @@ include output
 default_border none
 exec swaymsg border none
 
+# Run daemon for swayr window switcher
 exec ~/.cargo/bin/swayrd
-
 bindsym $mod+Tab exec swayr switch-window
+
+# File picker in home directory
+bindsym $mod+o exec $HOME/.config/sway/scripts/file-search.sh
