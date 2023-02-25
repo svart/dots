@@ -3,9 +3,11 @@
 # First dialog chooses which directory in home to explore
 # Second dialog chooses the file
 
-DIRECTORY=`fd --type d --max-depth 1 --base-directory $HOME | wofi --dmenu`
+WOFI=$HOME/.config/sway/scripts/exclusive-wofi.sh
+
+DIRECTORY=`fd --type d --max-depth 1 --base-directory $HOME | $WOFI --dmenu`
 
 if [ -n "$DIRECTORY" ]
 then
-    fd --type f --base-directory $HOME/$DIRECTORY | wofi --dmenu | xargs -I{} xdg-open $HOME/$DIRECTORY/{}
+    fd --type f --base-directory $HOME/$DIRECTORY | $WOFI --dmenu | xargs -I{} xdg-open $HOME/$DIRECTORY/{}
 fi
