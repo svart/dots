@@ -27,6 +27,14 @@
   (setq doom-themes-enable-bold t)
   (setq doom-themes-enable-italic t))
 
+;; Mode-line configuration
+(setq doom-modeline-height 10)
+(custom-set-faces
+  '(mode-line ((t (:family "JetBrainsMono Nerd Font" :height 0.9))))
+  '(mode-line-inactive ((t (:family "JetBrainsMono Nerd Font" :height 0.9)))))
+(setq doom-modeline-icon t)
+(setq doom-modeline-major-mode-icon t)
+
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
