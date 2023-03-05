@@ -101,7 +101,8 @@
     "network": {
         "format-wifi": " {essid}",
         "format-ethernet": " eth",
-        "format-disconnected": ""
+        "format-disconnected": "",
+        "on-click": "iwgtk"
     },
 
     "pulseaudio": {
