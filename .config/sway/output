@@ -12,11 +12,12 @@
 set $laptop eDP-1
 
 output $laptop   resolution 2240x1400 position 0,0
-output HDMI-A-1  resolution 3840x2160 position 2240,0
+output DP-1 resolution 3840x2560 position -800,-2560
+output DP-3 resolution 3840x2560 position -800,-2560
 
 # Disable laptop internal screen when lid is closed
 bindswitch lid:on output $laptop disable
 bindswitch lid:off output $laptop enable
 
 # Set random wallpaper on startup
-exec ~/.cargo/bin/setwall random ~/Pictures/walls -c sway -o $laptop -o HDMI-A-1 -k
+exec ~/.cargo/bin/setwall random ~/Pictures/walls -c sway -o $laptop -o DP-1 -o DP-3 -k
