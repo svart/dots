@@ -131,6 +131,12 @@
       :desc "Insert structured template" :nv "S" #'org-insert-structure-template
 )
 
+(map! :after lsp-mode
+      :localleader
+      :prefix "g"
+      :desc "Open ref in other window" :n "g" #'xref-find-definitions-other-window
+)
+
 
 ;; org-roam-ui configuration
 (use-package! websocket
