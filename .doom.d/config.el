@@ -74,6 +74,7 @@
 (setq org-directory "~/Documents/org")
 (setq org-roam-directory "~/Documents/org/roam")
 (setq org-default-notes-file (concat org-directory "/notes.org"))
+(setq org-agenda-files '("~/Documents/org" "~/Documents/org/roam"))
 (after! org
   (setq org-todo-keywords
         '((sequence
@@ -95,10 +96,11 @@
           ("DELEGATED" . "pink")
           ("POSTPONED" . "#008080"))
         org-hide-emphasis-markers t
+        org-startup-folded t
   )
 )
 (setq org-capture-templates
-      '(("t" "Todo" entry (file+headline "notes.org" "Tasks")
+      '(("t" "Todo" entry (file+headline "todo.org" "Tasks")
          "* TODO %?\n %i %a" :empty-lines 1)
         ("n" "Note" entry (file+headline "notes.org" "Notes")
          "* %?\n %i %a" :emptry-lines 1)
