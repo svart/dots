@@ -8,6 +8,7 @@ export MOZ_WEBRENDER=1
 export MOZ_ENABLE_WAYLAND=1
 
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+export MANROFFOPT="-c"
 export FZF_DEFAULT_OPTS='--preview="bat --color=always --style=numbers --line-range=:500 {}"'
 
 
