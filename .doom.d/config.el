@@ -75,6 +75,10 @@
 (setq org-roam-directory "~/Documents/org/roam")
 (setq org-default-notes-file (concat org-directory "/notes.org"))
 (setq org-agenda-files '("~/Documents/org" "~/Documents/org/roam"))
+(setq org-log-into-drawer "LOGBOOK")
+(setq org-agenda-show-future-repeats 'next)
+(setq org-agenda-skip-scheduled-if-done 't)
+(setq org-agenda-skip-deadline-if-done 't)
 (after! org
   (setq org-todo-keywords
         '((sequence
@@ -100,7 +104,7 @@
   )
 )
 (setq org-capture-templates
-      '(("t" "Todo" entry (file+headline "todo.org" "Tasks")
+      '(("t" "Todo" entry (file+headline "todo.org" "Inbox")
          "* TODO %?\n %i %a" :empty-lines 1)
         ("n" "Note" entry (file+headline "notes.org" "Notes")
          "* %?\n %i %a" :emptry-lines 1)
@@ -122,9 +126,15 @@
 (map! :leader
       (:prefix "c"
        :desc "Comment or uncomment lines"  ";" #'evilnc-comment-or-uncomment-lines
-       :desc "Open code structure sidebar" "u" #'lsp-ui-imenu)
+       :desc "Open code structure sidebar" "u" #'lsp-ui-imenu
+       :desc "Restart LSP server for workspace" "R" #'lsp-restart-workspace
+      )
       (:prefix "f"
-       :desc "New file" "n" #'dired-create-empty-file) ;; TODO: open this file after creation
+       :desc "New file" "n" #'dired-create-empty-file ;; TODO: open this file after creation
+      )
+      (:prefix "s"
+       :desc "Copy visible link" "L" #'link-hint-copy-link
+      )
 )
 
 (map! :after evil-org
