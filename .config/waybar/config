@@ -45,12 +45,15 @@
 
     "clock": {
         "format": "{:%a %Y-%m-%d %H:%M}",
-        "tooltip-format": "<big>{:%Y %B %d}</big>\n<tt><big>{calendar}</big></tt>",
-        "calendar-weeks-pos": "left",
-        "today-format": "<span color='#ff6699'><b><u>{}</u></b></span>",
-        "format-calendar": "<span color='#cdf0ea'><b>{}</b></span>",
-        "format-calendar-weeks": "<span color='#444444'><b>{}</b></span>",
-        "format-calendar-weekdays": "<span color='#cccc66'><b>{}</b></span>",
+        "tooltip-format": "<big>{calendar}</big>",
+        "calendar": {
+          "weeks-pos": "left",
+          "format": {
+            "today": "<span color='#ff6699'><b><u>{}</u></b></span>",
+            "weeks": "<span color='#444444'><b>{}</b></span>",
+            "weekdays": "<span color='#cccc66'><b>{}</b></span>",
+          }
+        }
     },
 
     "cpu": {
