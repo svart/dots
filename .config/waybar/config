@@ -30,7 +30,7 @@
         "disable-scroll": true,
         "disable-click": false,
         "all-outputs": false,
-        "format": "{name}",
+        "format": "{name} ",
     },
 
     "custom/separator": {

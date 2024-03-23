@@ -1,3 +1,3 @@
 #!/bin/bash
 
-flock --nonblock /tmp/.wofi.lock wofi $1
+flock --nonblock /tmp/.wofi.lock wofi $@

@@ -70,6 +70,9 @@
     bindsym $mod+Prior workspace prev
     bindsym Alt+Tab    workspace back_and_forth
 
+    # Rename current workspace
+    bindsym $mod+y exec --no-startup-id $HOME/.config/sway/scripts/rename-workspace.sh
+
 #
 # Layout stuff:
 #
