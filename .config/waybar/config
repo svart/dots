@@ -53,7 +53,8 @@
             "weeks": "<span color='#444444'><b>{}</b></span>",
             "weekdays": "<span color='#cccc66'><b>{}</b></span>",
           }
-        }
+        },
+        "on-click": "gnome-calendar"
     },
 
     "cpu": {
