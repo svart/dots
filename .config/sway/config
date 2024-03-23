@@ -37,12 +37,6 @@ bar {
     swaybar_command waybar
 }
 
-# Lock screen
-bindsym Mod4+Ctrl+l exec swaylock -c 000000
-
-# Screenshot tool
-bindsym Ctrl+Alt+A exec flameshot gui
-
 include /etc/sway/config.d/*
 include key_bindings
 include input
@@ -54,7 +48,3 @@ exec swaymsg border none
 
 # Run daemon for swayr window switcher
 exec ~/.cargo/bin/swayrd
-bindsym $mod+Tab exec swayr switch-window
-
-# File picker in home directory
-bindsym $mod+o exec $HOME/.config/sway/scripts/file-search.sh
