@@ -38,9 +38,9 @@ bar {
 }
 
 include /etc/sway/config.d/*
-include key_bindings
-include input
-include output
+include key_bindings.conf
+include input.conf
+include output.conf
 
 # Remove borders from all windows
 default_border none
