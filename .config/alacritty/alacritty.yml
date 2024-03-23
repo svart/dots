@@ -1,5 +1,6 @@
 window:
   opacity: 0.9
+  decorations: none
 
 key_bindings:
     - { key: F11,                   action: ToggleFullscreen }
@@ -8,9 +9,9 @@ key_bindings:
 
 font:
     normal:
-        family: JetBrainsMono Nerd Font
-    # size: 10
-    size: 20
+        family: "JetBrainsMono NF"
+        style: Regular
+    size: 18
     # offset:
     #     x: 0
     #     y: 1
