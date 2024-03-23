@@ -144,6 +144,18 @@ bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
 bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 bindsym XF86MonBrightnessUp exec brightnessctl set +5%
 
+# Lock screen
+bindsym Mod4+Ctrl+l exec swaylock -c 000000
+
+# Screenshot tool
+bindsym Ctrl+Alt+A exec flameshot gui
+
+# Open wofy to choose whindow to switch into
+bindsym $mod+Tab exec swayr switch-window
+
+# File picker in home directory
+bindsym $mod+o exec $HOME/.config/sway/scripts/file-search.sh
+
 # bindsym XF86Display
 # bindsym XF86WLAN
 # bindsym XF86NotificationCenter
