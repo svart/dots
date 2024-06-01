@@ -111,6 +111,16 @@
        )
 )
 
+;; Fix inserting last stored link when link is stored by id
+(defadvice! +org--store-id-link-a (link)
+  :filter-return #'org-id-store-link
+  (when (and link org-store-link-plist)
+    (add-to-list 'org-stored-links
+                 (list (plist-get org-store-link-plist :link)
+                       (plist-get org-store-link-plist :description))))
+  link)
+
+
 (setq projectile-project-search-path '("~/work"))
 
 ;; Make evil-search-word look for symbol rather than word boundaries
