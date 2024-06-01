@@ -134,18 +134,22 @@
       :desc "Comment or uncomment lines"  ";" #'evilnc-comment-or-uncomment-lines
       :desc "Open code structure sidebar" "u" #'lsp-ui-imenu
       :desc "Restart LSP server for workspace" "R" #'lsp-restart-workspace
+)
 
-      :prefix "f"
-      :desc "New file" "n" #'dired-create-empty-file ;; TODO: open this file after creation
+(map! :leader
+     :prefix "f"
+     :desc "New file" "n" #'dired-create-empty-file ;; TODO: open this file after creation
+)
 
-      :prefix "s"
-      :desc "Copy visible link" "L" #'link-hint-copy-link
+(map! :leader
+     :prefix "s"
+     :desc "Copy visible link" "L" #'link-hint-copy-link
 )
 
 (map! :after evil-org
-      :map evil-org-mode-map
-      :localleader
-      :desc "Insert structured template" :nv "S" #'org-insert-structure-template
+     :map evil-org-mode-map
+     :localleader
+     :desc "Insert structured template" :nv "S" #'org-insert-structure-template
 )
 
 (map! :after lsp-mode
