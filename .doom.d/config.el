@@ -150,6 +150,7 @@
      :map evil-org-mode-map
      :localleader
      :desc "Insert structured template" :nv "S" #'org-insert-structure-template
+     :desc "Run source code block" :nv "R" #'org-babel-execute-src-block
 )
 
 (map! :after lsp-mode
