@@ -175,3 +175,5 @@
           org-roam-ui-follow t
           org-roam-ui-update-on-save t
           org-roam-ui-open-on-start t))
+
+(set-popup-rule! "^\\*doom:scratch" :width 0.5 :side 'right)
