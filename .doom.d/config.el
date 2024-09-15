@@ -19,10 +19,13 @@
 ;;
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
-(setq doom-font (font-spec :family "JetBrainsMono NF" :size 21 :weight 'regular)
-;; (setq doom-font (font-spec :family "FiraCode Nerd Font Mono" :size 21 :weight 'regular :style 'retina)
+(setq doom-font (font-spec :family "JetBrainsMono" :size 21 :weight 'regular)
       doom-variable-pitch-font (font-spec :family "FreeSerif" :size 21)
       doom-big-font (font-spec :family "FiraCode Nerd Font Mono" :size 35))
+
+;; Specify font for Cyrillic characters separately as default config was not applied
+(set-fontset-font t 'cyrillic (font-spec :family "JetBrainsMono" :size 21 :weight 'regular))
+
 (after! doom-theme
   (setq doom-themes-enable-bold t)
   (setq doom-themes-enable-italic t))
@@ -30,8 +33,8 @@
 ;; Mode-line configuration
 (setq doom-modeline-height 10)
 (custom-set-faces
-  '(mode-line ((t (:family "JetBrainsMono Nerd Font" :height 0.9))))
-  '(mode-line-inactive ((t (:family "JetBrainsMono Nerd Font" :height 0.9)))))
+  '(mode-line ((t (:family "JetBrainsMono NF" :height 0.9))))
+  '(mode-line-inactive ((t (:family "JetBrainsMono NF" :height 0.9)))))
 (setq doom-modeline-icon t)
 (setq doom-modeline-major-mode-icon t)
 
