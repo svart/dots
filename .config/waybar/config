@@ -2,9 +2,8 @@
     "layer": "top",
     "position": "top",
     "height": 30,
-    "modules-left": ["sway/workspaces"],
-    "modules-center": [],
-
+    "modules-left": ["sway/workspaces", "sway/mode", "wlr/taskbar"],
+    "modules-center": ["sway/window"],
     "modules-right": [
         "tray",
         "sway/language",
@@ -14,6 +13,8 @@
         "backlight",
         "custom/separator",
         "network",
+        "custom/separator",
+        "custom/vpn",
         "custom/separator",
         "temperature",
         "custom/separator",
@@ -25,6 +26,27 @@
         "custom/separator",
         "clock"
     ],
+
+    "custom/vpn": {
+       "interval": 3,
+       "format": "{}",
+       "exec": "~/.local/bin/get-wireguard-status",
+       "max-length": "100",
+    },
+
+    "sway/window": {
+        "max-length": 50
+    },
+
+    "wlr/taskbar": {
+        "format": "{icon}",
+        "icon-size": 28,
+        "spacing": 3,
+        "tooltip-format": "{title}",
+        "ignore-list": [],
+        "on-click": "activate",
+        "on-click-middle": "close"
+    },
 
     "sway/workspaces": {
         "disable-scroll": true,
