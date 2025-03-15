@@ -6,6 +6,7 @@
     "modules-center": ["sway/window"],
     "modules-right": [
         "tray",
+        "custom/separator",
         "sway/language",
         "custom/separator",
         "pulseaudio",
@@ -72,7 +73,7 @@
           "weeks-pos": "left",
           "format": {
             "today": "<span color='#ff6699'><b><u>{}</u></b></span>",
-            "weeks": "<span color='#444444'><b>{}</b></span>",
+            "weeks": "<span color='#444444'><b>{:%W}</b></span>",
             "weekdays": "<span color='#cccc66'><b>{}</b></span>",
           }
         },
