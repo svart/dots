@@ -43,7 +43,7 @@ include input.conf
 include output.conf
 
 # Remove borders from all windows
-default_border none
+default_border pixel 0
 exec swaymsg border none
 
 # Run daemon for swayr window switcher
