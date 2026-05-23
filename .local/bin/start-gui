@@ -1,0 +1,27 @@
+#!/bin/bash
+gui_type=$1
+
+if [ "$gui_type" != "sway" -a "$gui_type" != "niri" ]
+then
+    echo "ERROR: unknown GUI type: $gui_type"
+    exit 1
+fi
+
+export SDL_VIDEODRIVER=wayland
+export _JAVA_AWT_WM_NONREPARENTING=1
+export QT_QPA_PLATFORM=wayland
+export XDG_CURRENT_DESKTOP=$gui_type
+export XDG_SESSION_DESKTOP=$gui_type
+export MOZ_WEBRENDER=1
+export MOZ_ENABLE_WAYLAND=1
+
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+export MANROFFOPT="-c"
+export FZF_DEFAULT_OPTS='--preview="bat --color=always --style=numbers --line-range=:500 {}"'
+
+if [ "$gui_type" == "niri" ]
+then
+    systemctl --user start niri
+else
+    exec $gui_type
+fi
