@@ -40,6 +40,7 @@ window#waybar {
 #memory,
 #network,
 #backlight,
+#language,
 #pulseaudio {
   padding: 0 5px;
   margin-right: 5px;
@@ -83,5 +84,5 @@ window#waybar {
 }
 
 #language {
-  min-width: 35px
+  min-width: 35px;
 }

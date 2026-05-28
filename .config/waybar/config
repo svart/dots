@@ -7,7 +7,7 @@
     "modules-right": [
         "tray",
         "custom/separator",
-        "sway/language",
+        "niri/language",
         "custom/separator",
         "pulseaudio",
         "custom/separator",
@@ -131,8 +131,8 @@
         "on-click": "pavucontrol"
     },
 
-    "sway/language": {
-        "format": "{short}"
+    "niri/language": {
+        "format": "{shortDescription}"
     },
 
     "backlight": {
