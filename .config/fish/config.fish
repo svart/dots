@@ -45,3 +45,5 @@ function fish_title
 end
 
 set fish_greeting ""
+
+fish_add_path /home/svart/.opencode/bin
