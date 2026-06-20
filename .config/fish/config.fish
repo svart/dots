@@ -5,8 +5,12 @@ alias gd="git diff"
 alias ls="lsd"
 alias ll="lsd -l"
 alias vim="nvim"
+alias task="pkms task"
 
 alias hr 'history --merge'  # read and merge history from disk
+
+#delete word by Alt-Backspace
+bind \e\x7f backward-kill-word
 
 function vterm_printf;
     if begin; [  -n "$TMUX" ]  ; and  string match -q -r "screen|tmux" "$TERM"; end
