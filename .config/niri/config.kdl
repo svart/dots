@@ -97,7 +97,8 @@ input {
 
 output "eDP-1" {
     scale 1
-    position x=800 y=2560
+    mode "2240x1400@60"
+    position x=0 y=0
 }
 
 output "DP-3" {
@@ -108,6 +109,7 @@ output "DP-3" {
 output "HDMI-A-1" {
     scale 1
     mode "1920x1080@60"
+    position x=2240 y=0
 }
 
 // Settings that influence how windows are positioned and sized.
