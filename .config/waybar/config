@@ -31,7 +31,7 @@
     "custom/vpn": {
        "interval": 3,
        "format": "{}",
-       "exec": "~/.local/bin/get-wireguard-status",
+       "exec": "~/.cargo/bin/get-wireguard-status",
        "max-length": "100",
     },
 
