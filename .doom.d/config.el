@@ -149,6 +149,13 @@
      :desc "Copy visible link" "L" #'link-hint-copy-link
 )
 
+(map! :leader
+      :prefix "o"
+      :desc "Dired" "d" #'dired-jump
+      :desc "Start a debugger" "-" #'+debugger/start
+      :desc "Toggle vterm popup" "T" #'+vterm/toggle
+      :desc "Open vterm here" "t" #'+vterm/here)
+
 (map! :after evil-org
      :map evil-org-mode-map
      :localleader
