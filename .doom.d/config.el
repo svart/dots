@@ -33,8 +33,8 @@
 ;; Mode-line configuration
 (setq doom-modeline-height 10)
 (custom-set-faces
-  '(mode-line ((t (:family "JetBrainsMono NF" :height 0.9))))
-  '(mode-line-inactive ((t (:family "JetBrainsMono NF" :height 0.9)))))
+  '(mode-line ((t (:family "JetBrainsMono NF" :size 12))))
+  '(mode-line-inactive ((t (:family "JetBrainsMono NF" :size 12)))))
 (setq doom-modeline-icon t)
 (setq doom-modeline-major-mode-icon t)
 
