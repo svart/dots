@@ -191,3 +191,26 @@
 (use-package mindstream
   :config
   (mindstream-mode))
+
+;; Repo list honouring dir-local `magit-repository-directories'.
+(defun my/magit-list-repositories ()
+  (interactive)
+  (let ((dirs magit-repository-directories))
+    (magit-list-repositories)
+    (with-current-buffer "*Magit Repositories*"
+      (setq-local magit-repository-directories dirs)
+      (magit-repolist-refresh))))
+
+(map! :leader "g L" #'my/magit-list-repositories)
+
+(defun my/magit-repolist-column-branch-dirty (_)
+  (concat (or (magit-get-current-branch) (magit-rev-parse "--short" "HEAD"))
+          (and (magit-anything-modified-p) "*")))
+
+(after! magit-repos
+  (setq magit-repolist-columns
+        '(("Name"   25 magit-repolist-column-ident nil)
+          ("Branch" 25 my/magit-repolist-column-branch-dirty nil)
+          ("B<U"     3 magit-repolist-column-unpulled-from-upstream ((:right-align t)))
+          ("B>U"     3 magit-repolist-column-unpushed-to-upstream ((:right-align t)))
+          ("Path"   99 magit-repolist-column-path nil))))
