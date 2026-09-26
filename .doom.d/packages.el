@@ -53,3 +53,4 @@
 (unpin! org-roam)
 (package! org-roam-ui)
 (package! mindstream)
+(package! just-mode)
