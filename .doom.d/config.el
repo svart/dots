@@ -193,6 +193,12 @@
   :config
   (mindstream-mode))
 
+;; ArkTS (HarmonyOS). One-time grammar install:
+;;   M-x treesit-install-language-grammar RET arkts
+(use-package! arkts-ts-mode
+  :load-path (lambda () (expand-file-name "lisp" doom-user-dir))
+  :mode "\\.ets\\'")
+
 ;; Repo list honouring dir-local `magit-repository-directories'.
 (defun my/magit-list-repositories ()
   (interactive)
