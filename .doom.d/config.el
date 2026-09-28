@@ -164,6 +164,7 @@
 )
 
 (map! :after lsp-mode
+      :map lsp-mode-map
       :localleader
       :prefix "g"
       :desc "Open ref in other window" :n "g" #'xref-find-definitions-other-window
