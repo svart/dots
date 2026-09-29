@@ -197,7 +197,40 @@
 ;;   M-x treesit-install-language-grammar RET arkts
 (use-package! arkts-ts-mode
   :load-path (lambda () (expand-file-name "lisp" doom-user-dir))
-  :mode "\\.ets\\'")
+  :mode "\\.ets\\'"
+  :hook (arkts-ts-mode-local-vars . lsp!))
+
+;; ArkTS language server (@arkts/language-server, installed by
+;; M-x lsp-install-server RET arkts-ls).  `sdkPath' must contain
+;; ets/build-tools/ets-loader; override per project in .dir-locals.el.
+(defvar my/arkts-sdk-path "~/.local/share/openharmony/sdk/12"
+  "OpenHarmony SDK root used by the ArkTS language server.")
+(defvar my/arkts-hms-path nil
+  "HarmonyOS HMS SDK root (DevEco `hms' dir), or nil for pure OpenHarmony.")
+(put 'my/arkts-sdk-path 'safe-local-variable #'stringp)
+(put 'my/arkts-hms-path 'safe-local-variable #'string-or-null-p)
+
+(after! lsp-mode
+  (add-to-list 'lsp-language-id-configuration '(arkts-ts-mode . "ets"))
+  (lsp-dependency 'ets-language-server
+                  '(:system "ets-language-server")
+                  '(:npm :package "@arkts/language-server"
+                         :path "ets-language-server"))
+  (lsp-register-client
+   (make-lsp-client
+    :new-connection (lsp-stdio-connection
+                     (lambda ()
+                       (list (lsp-package-path 'ets-language-server) "--stdio")))
+    :activation-fn (lsp-activate-on "ets")
+    :server-id 'arkts-ls
+    :initialization-options
+    (lambda ()
+      `(:ets (:sdkPath ,(expand-file-name my/arkts-sdk-path)
+              ,@(when my/arkts-hms-path
+                  `(:hmsPath ,(expand-file-name my/arkts-hms-path))))))
+    :download-server-fn
+    (lambda (_client callback error-callback _update?)
+      (lsp-package-ensure 'ets-language-server callback error-callback)))))
 
 ;; Repo list honouring dir-local `magit-repository-directories'.
 (defun my/magit-list-repositories ()
