@@ -4,6 +4,36 @@ Dotfiles, deployed into `~` with GNU Stow. The repo root is the stow
 package; the repo can live anywhere. Run all commands below from the
 repo root.
 
+## Fresh machine
+
+1. Install `stow` and clone this repo anywhere.
+2. From the repo root, preview and fix conflicts:
+
+   ```bash
+   stow -n -v .
+   ```
+
+   Stow refuses to replace existing real files (e.g. a default
+   `~/.config/fish/config.fish`). Move them away and re-run.
+   `stow --adopt .` also works but moves the machine's files into the
+   repo; check `git diff` and `git checkout .` to restore repo versions.
+3. Link everything:
+
+   ```bash
+   stow .
+   ```
+
+4. Install what stow does not provide:
+   - tmux plugins:
+
+     ```bash
+     git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
+     ```
+
+     then press `prefix + I` (prefix is `C-Space`) inside tmux.
+   - Doom Emacs itself; `~/.doom.d` holds only the config.
+   - Tools in `~/.local/bin` other than the scripts tracked here.
+
 ## Install / update
 
 ```bash
