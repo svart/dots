@@ -1,3 +1,4 @@
 tags
 .config/tmux/plugins/
 .config/nvim/plugin/
+.config/fish/fish_variables
