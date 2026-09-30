@@ -4,3 +4,4 @@ tags
 \.stow-local-ignore
 ^/\.config/systemd/user/niri\.service\.wants
 ^/README\.md
+^/\.stowrc
