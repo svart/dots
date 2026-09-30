@@ -46,4 +46,6 @@ end
 
 set fish_greeting ""
 
-fish_add_path /home/svart/.opencode/bin
+fish_add_path --global /home/svart/.opencode/bin
+
+direnv hook fish | source
