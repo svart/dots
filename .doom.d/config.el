@@ -193,6 +193,10 @@
   :config
   (mindstream-mode))
 
+(after! treesit
+  (add-to-list 'treesit-language-source-alist
+               '(rust "https://github.com/tree-sitter/tree-sitter-rust" "v0.21.0")))
+
 ;; ArkTS (HarmonyOS). One-time grammar install:
 ;;   M-x treesit-install-language-grammar RET arkts
 (use-package! arkts-ts-mode
