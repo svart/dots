@@ -46,6 +46,11 @@ end
 
 set fish_greeting ""
 
+# Default autosuggestion color is brblack, which the terminal palette renders teal-ish
+set -g fish_color_autosuggestion 888888
+# Default is cyan params + underline, which renders greenish
+set -g fish_color_valid_path 5f87ff --underline
+
 fish_add_path --global /home/svart/.opencode/bin
 
 direnv hook fish | source
