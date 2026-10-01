@@ -48,7 +48,9 @@ set fish_greeting ""
 
 # Default autosuggestion color is brblack, which the terminal palette renders teal-ish
 set -g fish_color_autosuggestion 888888
-# Default is cyan params + underline, which renders greenish
+# Default params are cyan, which the terminal palette renders greenish
+# Backup color 5f87ff, 5f7fc4
+set -g fish_color_param 5f87ff
 set -g fish_color_valid_path 5f87ff --underline
 
 fish_add_path --global /home/svart/.opencode/bin
