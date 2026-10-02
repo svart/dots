@@ -67,7 +67,7 @@
     },
 
     "clock": {
-        "format": "{:%a %Y-%m-%d %H:%M}",
+        "format": "{:%a %Y-%m-%d %H:%M %Z}",
         "tooltip-format": "<big>{calendar}</big>",
         "calendar": {
           "weeks-pos": "left",
