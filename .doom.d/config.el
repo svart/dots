@@ -247,10 +247,26 @@
   (concat (or (magit-get-current-branch) (magit-rev-parse "--short" "HEAD"))
           (and (magit-anything-modified-p) "*")))
 
+(defun my/magit-repolist-column-upstream-sync (_)
+  "Commits ahead (↑) and behind (↓) the upstream, or \"=\" when in sync.
+Without a configured upstream, compares with origin/<branch>.
+Uses the local remote-tracking ref; it does not fetch."
+  (when-let* ((upstream
+               (or (magit-get-upstream-branch)
+                   (when-let* ((branch (magit-get-current-branch))
+                               (ref (concat "origin/" branch)))
+                     (and (magit-ref-exists-p (concat "refs/remotes/" ref))
+                          ref)))))
+    (pcase-let ((`(,ahead ,behind) (magit-rev-diff-count "HEAD" upstream)))
+      (if (= 0 ahead behind)
+          "="
+        (string-join (delq nil (list (and (> ahead 0) (format "↑ %d" ahead))
+                                     (and (> behind 0) (format "↓ %d" behind))))
+                     " ")))))
+
 (after! magit-repos
   (setq magit-repolist-columns
         '(("Name"   25 magit-repolist-column-ident nil)
           ("Branch" 25 my/magit-repolist-column-branch-dirty nil)
-          ("B<U"     3 magit-repolist-column-unpulled-from-upstream ((:right-align t)))
-          ("B>U"     3 magit-repolist-column-unpushed-to-upstream ((:right-align t)))
+          ("Sync"   10 my/magit-repolist-column-upstream-sync nil)
           ("Path"   99 magit-repolist-column-path nil))))
