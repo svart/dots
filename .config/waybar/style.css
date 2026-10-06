@@ -38,6 +38,7 @@ window#waybar {
 #battery,
 #cpu,
 #memory,
+#disk,
 #network,
 #backlight,
 #language,
@@ -48,6 +49,14 @@ window#waybar {
 }
 
 #temperature.critical {
+  color: red;
+}
+
+#disk.warning {
+  color: yellow;
+}
+
+#disk.critical {
   color: red;
 }
 

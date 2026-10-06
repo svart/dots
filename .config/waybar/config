@@ -23,6 +23,8 @@
         "custom/separator",
         "memory",
         "custom/separator",
+        "disk",
+        "custom/separator",
         "battery",
         "custom/separator",
         "clock"
@@ -87,6 +89,17 @@
     "memory": {
         "format": " {}%",
         "tooltip-format": "{used:0.1f}/{total:0.1f}GiB used"
+    },
+
+    "disk": {
+        "path": "/home",
+        "interval": 60,
+        "states": {
+            "warning": 80,
+            "critical": 90
+        },
+        "format": " {percentage_used}%",
+        "tooltip-format": "{used}/{total} used"
     },
 
     "temperature": {
