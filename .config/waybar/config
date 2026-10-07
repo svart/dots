@@ -17,6 +17,8 @@
         "custom/separator",
         "custom/vpn",
         "custom/separator",
+        "custom/powerprofile",
+        "custom/separator",
         "temperature",
         "custom/separator",
         "cpu",
@@ -35,6 +37,12 @@
        "format": "{}",
        "exec": "~/.cargo/bin/get-wireguard-status",
        "max-length": "100",
+    },
+
+    "custom/powerprofile": {
+        "exec": "~/.config/waybar/powerprofile.sh",
+        "return-type": "json",
+        "interval": 10
     },
 
     "sway/window": {

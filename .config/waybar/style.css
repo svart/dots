@@ -33,6 +33,7 @@ window#waybar {
 }
 
 #tray,
+#custom-powerprofile,
 #temperature,
 #clock,
 #battery,
