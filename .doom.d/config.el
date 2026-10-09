@@ -149,12 +149,39 @@
      :desc "Copy visible link" "L" #'link-hint-copy-link
 )
 
+;; vterm starts in the current file's or dired buffer's directory, not in the
+;; project root.
+(defun my/vterm-here ()
+  "Open vterm in the current window at `default-directory'."
+  (interactive)
+  (+vterm/here t))
+
+(defun my/vterm-popup-toggle ()
+  "Close the visible vterm popup, or open one at `default-directory'.
+Each directory gets its own popup shell, reused on later toggles."
+  (interactive)
+  (if-let* ((win (seq-find (lambda (w)
+                             (string-prefix-p "*doom:vterm-popup:"
+                                              (buffer-name (window-buffer w))))
+                           (window-list))))
+      (delete-window win)
+    (require 'vterm)
+    (let* ((dir (expand-file-name default-directory))
+           (buffer (get-buffer-create
+                    (format "*doom:vterm-popup:%s*" (abbreviate-file-name dir)))))
+      (with-current-buffer buffer
+        (unless (eq major-mode 'vterm-mode)
+          (setq default-directory dir)
+          (vterm-mode)))
+      (pop-to-buffer buffer)
+      (set-window-dedicated-p (get-buffer-window buffer) t))))
+
 (map! :leader
       :prefix "o"
       :desc "Dired" "d" #'dired-jump
       :desc "Start a debugger" "-" #'+debugger/start
-      :desc "Toggle vterm popup" "T" #'+vterm/toggle
-      :desc "Open vterm here" "t" #'+vterm/here)
+      :desc "Toggle vterm popup" "T" #'my/vterm-popup-toggle
+      :desc "Open vterm here" "t" #'my/vterm-here)
 
 (map! :after evil-org
      :map evil-org-mode-map
