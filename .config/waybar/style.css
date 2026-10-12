@@ -49,6 +49,14 @@ window#waybar {
   margin-left: 5px;
 }
 
+#custom-powerprofile.performance {
+  color: #ff5555;
+}
+
+#custom-powerprofile.low-power {
+  color: #50fa7b;
+}
+
 #temperature.critical {
   color: red;
 }

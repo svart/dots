@@ -42,7 +42,8 @@
     "custom/powerprofile": {
         "exec": "~/.config/waybar/powerprofile.sh",
         "return-type": "json",
-        "interval": 10
+        "interval": 10,
+        "signal": 8
     },
 
     "sway/window": {
