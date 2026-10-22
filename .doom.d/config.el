@@ -139,9 +139,32 @@
       :desc "Restart LSP server for workspace" "R" #'lsp-restart-workspace
 )
 
+(defun my/yank-buffer-path-with-lines ()
+  "Copy `~/path:LINE', or `~/path:BEG-END' when a multi-line region is active."
+  (interactive)
+  (let* ((file (or (buffer-file-name (buffer-base-buffer))
+                   (user-error "Buffer is not visiting a file")))
+         (region (use-region-p))
+         (beg (if region (region-beginning) (point)))
+         (end (if region (region-end) (point)))
+         ;; A line-wise selection (evil `V') ends at the start of the next line.
+         (end (if (and (> end beg) (save-excursion (goto-char end) (bolp)))
+                  (1- end)
+                end))
+         (l1 (line-number-at-pos beg t))
+         (l2 (line-number-at-pos end t))
+         (path (concat (abbreviate-file-name file)
+                       (format ":%d" l1)
+                       (unless (= l1 l2) (format "-%d" l2)))))
+    (kill-new path)
+    (when (and (fboundp 'evil-visual-state-p) (evil-visual-state-p))
+      (evil-exit-visual-state))
+    (message "Copied: %s" path)))
+
 (map! :leader
      :prefix "f"
      :desc "New file" "n" #'dired-create-empty-file ;; TODO: open this file after creation
+     :desc "Yank file path:line" "L" #'my/yank-buffer-path-with-lines
 )
 
 (map! :leader
