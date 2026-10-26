@@ -1,9 +1,8 @@
 {
     "layer": "top",
     "position": "top",
-    "height": 30,
-    "modules-left": ["sway/workspaces", "sway/mode", "wlr/taskbar"],
-    "modules-center": ["sway/window"],
+    "height": 36,
+    "modules-left": ["wlr/taskbar"],
     "modules-right": [
         "tray",
         "custom/separator",
@@ -14,8 +13,6 @@
         "backlight",
         "custom/separator",
         "network",
-        "custom/separator",
-        "custom/vpn",
         "custom/separator",
         "custom/powerprofile",
         "custom/separator",
@@ -32,22 +29,11 @@
         "clock"
     ],
 
-    "custom/vpn": {
-       "interval": 3,
-       "format": "{}",
-       "exec": "~/.cargo/bin/get-wireguard-status",
-       "max-length": "100",
-    },
-
     "custom/powerprofile": {
         "exec": "~/.config/waybar/powerprofile.sh",
         "return-type": "json",
         "interval": 10,
         "signal": 8
-    },
-
-    "sway/window": {
-        "max-length": 50
     },
 
     "wlr/taskbar": {
@@ -58,13 +44,6 @@
         "ignore-list": [],
         "on-click": "activate",
         "on-click-middle": "close"
-    },
-
-    "sway/workspaces": {
-        "disable-scroll": true,
-        "disable-click": false,
-        "all-outputs": false,
-        "format": "{name} ",
     },
 
     "custom/separator": {
