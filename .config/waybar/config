@@ -58,7 +58,9 @@
 
     "clock": {
         "format": "{:%a %Y-%m-%d %H:%M %Z}",
-        "tooltip-format": "<big>{calendar}</big>",
+        "timezones": ["", "Europe/Moscow", "Asia/Shanghai"],
+        "timezone-tooltip-format": "{:%Z %a %H:%M}",
+        "tooltip-format": "<big>{calendar}</big>\n\n{tz_list}",
         "calendar": {
           "weeks-pos": "left",
           "format": {
