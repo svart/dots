@@ -48,32 +48,39 @@ window#waybar {
   color: red;
 }
 
-#battery icon {
-  color: red;
-  animation-name: blink;
-  animation-duration: 0.5s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-}
-
 #battery.charging {
 }
 
-@keyframes blink {
+@keyframes blink-white {
   to {
     background-color: #ffffff;
     color: black;
   }
 }
 
-#battery.warning:not(.charging) {
+@keyframes blink-red {
+  to {
+    background-color: #ff0000;
+    color: white;
+  }
+}
+
+/* warning: 11-20%, critical: 0-10% (see "states" in config) */
+#battery.warning:not(.charging),
+#battery.critical:not(.charging) {
   color: white;
-  animation-name: blink;
   animation-duration: 0.5s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   animation-direction: alternate;
+}
+
+#battery.warning:not(.charging) {
+  animation-name: blink-white;
+}
+
+#battery.critical:not(.charging) {
+  animation-name: blink-red;
 }
 
 #network.disconnected {
