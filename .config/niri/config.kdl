@@ -363,6 +363,10 @@ binds {
     Mod+D { spawn "wofi" "-S" "drun"; }
     Super+Alt+L { spawn "swaylock" "-f" "-c" "000000"; }
 
+    // qshell notifications: center, Do Not Disturb.
+    Mod+N { spawn "qs" "-c" "qshell" "ipc" "call" "notifications" "toggle"; }
+    Mod+Shift+N { spawn "qs" "-c" "qshell" "ipc" "call" "notifications" "toggleDnd"; }
+
     // You can also use a shell. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument in the end.
     // Mod+T { spawn "bash" "-c" "notify-send hello && exec alacritty"; }
