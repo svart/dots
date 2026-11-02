@@ -19,8 +19,8 @@ function power --description 'Show or switch the ACPI platform power profile'
             echo "usage: power [performance|balanced|fullcharge|status]" >&2
             return 2
     end
-    # Refresh the waybar module now instead of waiting for its 10 s interval.
-    pkill -SIGRTMIN+8 -x waybar
+    # Refresh the qshell bar now instead of waiting for its 1 s poll.
+    qs -c qshell ipc call powerprofile refresh >/dev/null 2>&1
     set -l cpu /sys/devices/system/cpu/cpu0/cpufreq
     echo (cat $profile_file)", governor "(cat $cpu/scaling_governor)", EPP "(cat $cpu/energy_performance_preference)
 end
