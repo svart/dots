@@ -303,6 +303,15 @@ layer-rule {
     place-within-backdrop true
 }
 
+// qshell's frosted surfaces blur the windows below them, not only the
+// wallpaper (niri's default "xray" blur). Costs more while they are shown.
+layer-rule {
+    match namespace="^qshell-(notifications|notification-center|osd|polkit)$"
+    background-effect {
+        xray false
+    }
+}
+
 // Window rules let you adjust behavior for individual windows.
 // Find more information on the wiki:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Window-Rules
