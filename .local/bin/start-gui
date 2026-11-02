@@ -1,7 +1,7 @@
 #!/bin/bash
 gui_type=$1
 
-if [ "$gui_type" != "sway" -a "$gui_type" != "niri" ]
+if [ "$gui_type" != "niri" ]
 then
     echo "ERROR: unknown GUI type: $gui_type"
     exit 1
@@ -19,9 +19,4 @@ export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export MANROFFOPT="-c"
 export FZF_DEFAULT_OPTS='--preview="bat --color=always --style=numbers --line-range=:500 {}"'
 
-if [ "$gui_type" == "niri" ]
-then
-    systemctl --user start niri
-else
-    exec $gui_type
-fi
+systemctl --user start niri

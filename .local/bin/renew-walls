@@ -1,2 +1,0 @@
-#!/bin/bash
-swaymsg -t get_outputs | jq -r '.[] | .name' | xargs -I{} echo "-o {}" | xargs setwall random ~/Pictures/walls -c sway
