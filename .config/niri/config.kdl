@@ -390,12 +390,15 @@ binds {
 
     // Example volume keys mappings for PipeWire & WirePlumber.
     // The allow-when-locked=true property makes them work even when the session is locked.
-    XF86AudioRaiseVolume  allow-when-locked=true { spawn "pactl" "set-sink-volume" "@DEFAULT_SINK@" "+5%"; }
-    XF86AudioLowerVolume  allow-when-locked=true { spawn "pactl" "set-sink-volume" "@DEFAULT_SINK@" "-5%"; }
-    XF86AudioMute         allow-when-locked=true { spawn "pactl" "set-sink-mute" "@DEFAULT_SINK@" "toggle"; }
-    XF86AudioMicMute      allow-when-locked=true { spawn "pactl" "set-source-mute" "@DEFAULT_SOURCE@" "toggle"; }
-    XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "set" "5%-"; }
-    XF86MonBrightnessUp   allow-when-locked=true { spawn "brightnessctl" "set" "+5%"; }
+    // Each key changes the value itself (works without qshell), then asks
+    // qshell to show its on-screen display (only for keys, not for changes
+    // from the control center or apps).
+    XF86AudioRaiseVolume  allow-when-locked=true { spawn "sh" "-c" "pactl set-sink-volume @DEFAULT_SINK@ +5% && qs -c qshell ipc call osd volume"; }
+    XF86AudioLowerVolume  allow-when-locked=true { spawn "sh" "-c" "pactl set-sink-volume @DEFAULT_SINK@ -5% && qs -c qshell ipc call osd volume"; }
+    XF86AudioMute         allow-when-locked=true { spawn "sh" "-c" "pactl set-sink-mute @DEFAULT_SINK@ toggle && qs -c qshell ipc call osd volume"; }
+    XF86AudioMicMute      allow-when-locked=true { spawn "sh" "-c" "pactl set-source-mute @DEFAULT_SOURCE@ toggle && qs -c qshell ipc call osd mic"; }
+    XF86MonBrightnessDown allow-when-locked=true { spawn "sh" "-c" "brightnessctl set 5%- && qs -c qshell ipc call osd brightness"; }
+    XF86MonBrightnessUp   allow-when-locked=true { spawn "sh" "-c" "brightnessctl set +5% && qs -c qshell ipc call osd brightness"; }
 
     Mod+Q { close-window; }
 
