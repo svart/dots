@@ -295,6 +295,14 @@ animations {
     // slowdown 3.0
 }
 
+// qshell draws a blurred copy of the wallpaper for the overview backdrop
+// (behind the zoomed-out workspaces); without this rule it would cover the
+// wallpaper itself.
+layer-rule {
+    match namespace="^qshell-backdrop$"
+    place-within-backdrop true
+}
+
 // Window rules let you adjust behavior for individual windows.
 // Find more information on the wiki:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Window-Rules
