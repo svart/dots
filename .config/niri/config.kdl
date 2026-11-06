@@ -384,7 +384,9 @@ binds {
     // Mod+T { spawn "alacritty"; }
     Mod+Return { spawn "alacritty"; }
     Mod+D { spawn "wofi" "-S" "drun"; }
-    Super+Alt+L { spawn "swaylock" "-f" "-c" "000000"; }
+    // qshell's lock screen; swaylock if it cannot start (same command as
+    // swayidle and the Lock button, qshell lib/idle.js).
+    Super+Alt+L { spawn "sh" "-c" "systemctl --user start qshell-lock.service || swaylock -f -c 000000"; }
 
     // qshell notifications: center, Do Not Disturb.
     Mod+N { spawn "qs" "-c" "qshell" "ipc" "call" "notifications" "toggle"; }
