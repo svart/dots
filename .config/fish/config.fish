@@ -46,6 +46,10 @@ end
 
 set fish_greeting ""
 
+set -gx MANPAGER "sh -c 'col -bx | bat -l man -p'"
+set -gx MANROFFOPT -c
+set -gx FZF_DEFAULT_OPTS '--preview="bat --color=always --style=numbers --line-range=:500 {}"'
+
 # Default autosuggestion color is brblack, which the terminal palette renders teal-ish
 set -g fish_color_autosuggestion 888888
 # Default params are cyan, which the terminal palette renders greenish

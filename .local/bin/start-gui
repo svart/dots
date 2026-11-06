@@ -1,4 +1,6 @@
 #!/bin/bash
+# Session environment comes from ~/.config/environment.d, which the systemd
+# user manager reads at login. Exports here would not reach niri.service.
 gui_type=$1
 
 if [ "$gui_type" != "niri" ]
@@ -7,16 +9,4 @@ then
     exit 1
 fi
 
-export SDL_VIDEODRIVER=wayland
-export _JAVA_AWT_WM_NONREPARENTING=1
-export QT_QPA_PLATFORM=wayland
-export XDG_CURRENT_DESKTOP=$gui_type
-export XDG_SESSION_DESKTOP=$gui_type
-export MOZ_WEBRENDER=1
-export MOZ_ENABLE_WAYLAND=1
-
-export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-export MANROFFOPT="-c"
-export FZF_DEFAULT_OPTS='--preview="bat --color=always --style=numbers --line-range=:500 {}"'
-
-systemctl --user start niri
+exec systemctl --user start niri
