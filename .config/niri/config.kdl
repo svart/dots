@@ -340,6 +340,12 @@ window-rule {
     open-floating true
 }
 
+// qshell's settings window (Theme.settingsTitle).
+window-rule {
+    match app-id=r#"^org\.quickshell$"# title="^qshell settings$"
+    open-floating true
+}
+
 // Example: block out two password managers from screen capture.
 // (This example rule is commented out with a "/-" in front.)
 /-window-rule {
