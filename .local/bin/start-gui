@@ -1,12 +1,4 @@
 #!/bin/bash
 # Session environment comes from ~/.config/environment.d, which the systemd
 # user manager reads at login. Exports here would not reach niri.service.
-gui_type=$1
-
-if [ "$gui_type" != "niri" ]
-then
-    echo "ERROR: unknown GUI type: $gui_type"
-    exit 1
-fi
-
 exec systemctl --user start niri
