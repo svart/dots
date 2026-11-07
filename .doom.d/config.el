@@ -282,6 +282,15 @@ Each directory gets its own popup shell, reused on later toggles."
     (lambda (_client callback error-callback _update?)
       (lsp-package-ensure 'ets-language-server callback error-callback)))))
 
+;; QML (:lang qt). One-time grammar install for qml-ts-mode:
+;;   M-x treesit-install-language-grammar RET qmljs
+;; Without the grammar, .qml files fall back to plain qml-mode.
+(after! treesit
+  (add-to-list 'treesit-language-source-alist
+               '(qmljs "https://github.com/yuja/tree-sitter-qmljs")))
+;; Arch's qt6-declarative installs the language server as `qmlls6'.
+(setq lsp-qml-server-command "qmlls6")
+
 ;; Repo list honouring dir-local `magit-repository-directories'.
 (defun my/magit-list-repositories ()
   (interactive)
