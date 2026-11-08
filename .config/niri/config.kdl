@@ -306,7 +306,7 @@ layer-rule {
 // qshell's frosted surfaces blur the windows below them, not only the
 // wallpaper (niri's default "xray" blur). Costs more while they are shown.
 layer-rule {
-    match namespace="^qshell-(notifications|notification-center|osd|polkit)$"
+    match namespace="^qshell-(notifications|notification-center|osd|polkit|launcher)$"
     background-effect {
         xray false
     }
@@ -383,7 +383,8 @@ binds {
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     // Mod+T { spawn "alacritty"; }
     Mod+Return { spawn "alacritty"; }
-    Mod+D { spawn "wofi" "-S" "drun"; }
+    // qshell's launcher; wofi if the shell is down.
+    Mod+D { spawn "sh" "-c" "qs -c qshell ipc call launcher toggle || wofi -S drun"; }
     // qshell's lock screen; swaylock if it cannot start (same command as
     // swayidle and the Lock button, qshell lib/idle.js).
     Super+Alt+L { spawn "sh" "-c" "systemctl --user start qshell-lock.service || swaylock -f -c 000000"; }
