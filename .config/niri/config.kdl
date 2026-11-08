@@ -632,3 +632,9 @@ binds {
     // Open overview from the keyboard
     Mod+Shift+W { toggle-overview; }
 }
+
+// qshell themes niri's recent-windows switcher (Alt+Tab, Mod+Tab): the
+// highlight in qshell's accent, following light/dark. qshell writes the
+// file (services/NiriTheme.qml); niri reloads it on change. Last, so it
+// wins over anything set above.
+include optional=true "~/.config/qshell/niri.kdl"
