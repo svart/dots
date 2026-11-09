@@ -340,6 +340,11 @@ window-rule {
     open-floating true
 }
 
+window-rule {
+    match app-id=r#"^app\.drey\.Dialect$"#
+    open-floating true
+}
+
 // qshell's settings window (Theme.settingsTitle).
 window-rule {
     match app-id=r#"^org\.quickshell$"# title="^qshell settings$"
