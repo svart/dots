@@ -345,6 +345,14 @@ window-rule {
     open-floating true
 }
 
+// A nested niri (deskctl's test desktop): never takes focus, full width.
+// deskctl moves it to a new workspace.
+window-rule {
+    match app-id=r#"^niri$"#
+    open-focused false
+    default-column-width { proportion 1.0; }
+}
+
 // qshell's settings window (Theme.settingsTitle).
 window-rule {
     match app-id=r#"^org\.quickshell$"# title="^qshell settings$"
