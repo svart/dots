@@ -422,6 +422,15 @@ binds {
     XF86MonBrightnessDown allow-when-locked=true { spawn "sh" "-c" "brightnessctl set 5%- && qs -c qshell ipc call osd brightness"; }
     XF86MonBrightnessUp   allow-when-locked=true { spawn "sh" "-c" "brightnessctl set +5% && qs -c qshell ipc call osd brightness"; }
 
+    // Media keys and Bluetooth headphone buttons (BlueZ turns AVRCP into
+    // these keys). qshell controls the player its Control Center shows.
+    // Play and Pause both toggle: headphones track the state themselves and
+    // may send Pause for a player that is already paused.
+    XF86AudioPlay  allow-when-locked=true { spawn "qs" "-c" "qshell" "ipc" "call" "media" "playPause"; }
+    XF86AudioPause allow-when-locked=true { spawn "qs" "-c" "qshell" "ipc" "call" "media" "playPause"; }
+    XF86AudioNext  allow-when-locked=true { spawn "qs" "-c" "qshell" "ipc" "call" "media" "next"; }
+    XF86AudioPrev  allow-when-locked=true { spawn "qs" "-c" "qshell" "ipc" "call" "media" "previous"; }
+
     Mod+Q { close-window; }
 
     Mod+Left  { focus-column-left; }
