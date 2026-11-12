@@ -1,0 +1,5 @@
+# Overrides /etc/xdg/autostart/iwgtk-indicator.desktop: no iwgtk tray icon.
+[Desktop Entry]
+Type=Application
+Name=iwgtk
+Hidden=true
