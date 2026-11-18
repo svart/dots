@@ -397,14 +397,14 @@ binds {
     // Mod+T { spawn "alacritty"; }
     Mod+Return { spawn "alacritty"; }
     // qshell's launcher; wofi if the shell is down.
-    Mod+D { spawn "sh" "-c" "qs -c qshell ipc call launcher toggle || wofi -S drun"; }
+    Mod+D hotkey-overlay-title="Open app launcher" { spawn "sh" "-c" "qs -c qshell ipc call launcher toggle || wofi -S drun"; }
     // qshell's lock screen; swaylock if it cannot start (same command as
     // swayidle and the Lock button, qshell lib/idle.js).
-    Super+Alt+L { spawn "sh" "-c" "systemctl --user start qshell-lock.service || swaylock -f -c 000000"; }
+    Super+Alt+L hotkey-overlay-title="Lock screen" { spawn "sh" "-c" "systemctl --user start qshell-lock.service || swaylock -f -c 000000"; }
 
     // qshell notifications: center, Do Not Disturb.
-    Mod+N { spawn "qs" "-c" "qshell" "ipc" "call" "notifications" "toggle"; }
-    Mod+Shift+N { spawn "qs" "-c" "qshell" "ipc" "call" "notifications" "toggleDnd"; }
+    Mod+N hotkey-overlay-title="Toggle notification center" { spawn "qs" "-c" "qshell" "ipc" "call" "notifications" "toggle"; }
+    Mod+Shift+N hotkey-overlay-title="Toggle Do Not Disturb" { spawn "qs" "-c" "qshell" "ipc" "call" "notifications" "toggleDnd"; }
 
     // You can also use a shell. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument in the end.
