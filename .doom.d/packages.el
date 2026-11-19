@@ -54,3 +54,7 @@
 (package! org-roam-ui)
 (package! mindstream)
 (package! just-mode)
+
+(package! codex
+  :recipe (:host github :repo "benthamite/codex")
+  :pin "5810a6265e330a1701ba414898289a4db1a8a617")

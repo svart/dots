@@ -329,3 +329,10 @@ Uses the local remote-tracking ref; it does not fetch."
           ("Branch" 25 my/magit-repolist-column-branch-dirty nil)
           ("Sync"   10 my/magit-repolist-column-upstream-sync nil)
           ("Path"   99 magit-repolist-column-path nil))))
+
+(use-package! codex
+  :commands (codex codex-send-command-with-context)
+  :init
+  (setq codex-program (expand-file-name "~/.local/bin/codex")
+        codex-terminal-backend 'app-server
+        codex-model "gpt-6.2-sol"))
