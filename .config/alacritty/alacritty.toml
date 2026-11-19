@@ -27,7 +27,7 @@ background = "#000000"
 foreground = "#eeeeee"
 
 [font]
-size = 20
+size = 15
 
 [font.normal]
 family = "JetBrainsMono NF"
