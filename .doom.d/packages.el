@@ -55,6 +55,10 @@
 (package! mindstream)
 (package! just-mode)
 
+;; Syntax highlighting and editing for Org source blocks.
+(package! kdl-mode)
+(package! powershell)
+
 (package! codex
   :recipe (:host github :repo "benthamite/codex")
   :pin "5810a6265e330a1701ba414898289a4db1a8a617")
