@@ -106,6 +106,37 @@
         org-startup-folded t
   )
 )
+(defun +org-match-formula (limit)
+  "Match an Org LaTeX fragment or environment before LIMIT."
+  (catch 'match
+    (while (re-search-forward
+            (rx (or "$" "\\(" "\\[" (seq bol (* blank) "\\begin{"))) limit t)
+      (let* ((start (match-beginning 0))
+             (element (save-excursion (goto-char start) (org-element-context)))
+             (begin (pcase (org-element-type element)
+                      ('latex-fragment (org-element-property :begin element))
+                      ('latex-environment (org-element-property :post-affiliated element)))))
+        (when (eq start begin)
+          (let* ((value (org-element-property :value element))
+                 (end (+ start (length (string-trim-right value)))))
+            (goto-char start)
+            (skip-chars-forward " \t")
+            (set-match-data (list (point) end))
+            (put-text-property (point) end 'font-lock-multiline t)
+            (goto-char end)
+            (throw 'match t)))))
+    nil))
+
+(defun +org-fontify-formulas ()
+  (font-lock-add-keywords nil '((+org-match-formula (0 'org-latex-and-related prepend))) 'append))
+
+(add-hook 'org-mode-hook #'+org-fontify-formulas)
+
+(custom-set-faces!
+  (list 'org-latex-and-related
+        :foreground (doom-color 'fg)
+        :background (doom-blend 'fg 'bg 0.12)
+        :weight 'normal))
 (setq org-capture-templates
       '(("t" "Todo" entry (file+headline "todo.org" "Inbox")
          "* TODO %?\n %i %a" :empty-lines 1)
