@@ -1,0 +1,87 @@
+// qshell draws a blurred copy of the wallpaper for the overview backdrop
+// (behind the zoomed-out workspaces); without this rule it would cover the
+// wallpaper itself.
+layer-rule {
+    match namespace="^qshell-backdrop$"
+    place-within-backdrop true
+}
+
+// qshell's frosted surfaces blur the windows below them, not only the
+// wallpaper (niri's default "xray" blur). Costs more while they are shown.
+layer-rule {
+    match namespace="^qshell-(notifications|notification-center|osd|polkit|launcher)$"
+    background-effect {
+        xray false
+    }
+}
+
+// Window rules let you adjust behavior for individual windows.
+// Find more information on the wiki:
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Window-Rules
+
+// Work around WezTerm's initial configure bug
+// by setting an empty default-column-width.
+window-rule {
+    // This regular expression is intentionally made as specific as possible,
+    // since this is the default config, and we want no false positives.
+    // You can get away with just app-id="wezterm" if you want.
+    match app-id=r#"^org\.wezfurlong\.wezterm$"#
+    default-column-width {}
+}
+
+// Open the Firefox picture-in-picture player as floating by default.
+window-rule {
+    // This app-id regular expression will work for both:
+    // - host Firefox (app-id is "firefox")
+    // - Flatpak Firefox (app-id is "org.mozilla.firefox")
+    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+    open-floating true
+}
+
+window-rule {
+    match app-id=r#"Calculator$"#
+    open-floating true
+}
+
+window-rule {
+    match app-id=r#"^app\.drey\.Dialect$"#
+    open-floating true
+}
+
+window-rule {
+    match app-id=r#"^todoist$"#
+    open-floating true
+}
+
+// A nested niri (deskctl's test desktop): never takes focus, full width.
+// deskctl moves it to a new workspace.
+window-rule {
+    match app-id=r#"^niri$"#
+    open-focused false
+    default-column-width { proportion 1.0; }
+}
+
+// qshell's settings window (Theme.settingsTitle).
+window-rule {
+    match app-id=r#"^org\.quickshell$"# title="^qshell settings$"
+    open-floating true
+}
+
+// Example: block out two password managers from screen capture.
+// (This example rule is commented out with a "/-" in front.)
+/-window-rule {
+    match app-id=r#"^org\.keepassxc\.KeePassXC$"#
+    match app-id=r#"^org\.gnome\.World\.Secrets$"#
+
+    block-out-from "screen-capture"
+
+    // Use this instead if you want them visible on third-party screenshot tools.
+    // block-out-from "screencast"
+}
+
+// Example: enable rounded corners for all windows.
+// (This example rule is commented out with a "/-" in front.)
+window-rule {
+    geometry-corner-radius 12
+    clip-to-geometry true
+}
