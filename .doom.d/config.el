@@ -19,8 +19,8 @@
 ;;
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
-(setq doom-font (font-spec :family "JetBrainsMono" :size 16 :weight 'regular)
-      doom-variable-pitch-font (font-spec :family "FreeSerif" :size 16)
+(setq doom-font (font-spec :family "JetBrainsMono" :size 17 :weight 'regular)
+      doom-variable-pitch-font (font-spec :family "FreeSerif" :size 17)
       doom-big-font (font-spec :family "FiraCode Nerd Font Mono" :size 35))
 
 ;; Specify font for Cyrillic characters separately as default config was not applied
