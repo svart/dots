@@ -271,6 +271,11 @@ Each directory gets its own popup shell, reused on later toggles."
 (set-popup-rule! "^\\*doom:scratch" :width 0.5 :side 'right)
 
 (use-package mindstream
+  :init
+  (let ((directory (expand-file-name "~/Documents/mindstream/")))
+    (setq mindstream-path (expand-file-name "anon" directory)
+          mindstream-archive-path (expand-file-name "archive" directory)
+          mindstream-save-session-path (expand-file-name "saved" directory)))
   :config
   (mindstream-mode))
 
