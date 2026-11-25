@@ -16,6 +16,7 @@ binds {
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     // Mod+T { spawn "alacritty"; }
     Mod+Return { spawn "alacritty"; }
+    Ctrl+Alt+E hotkey-overlay-title="Translate selected text" { spawn "dialect" "--selection"; }
     // qshell's launcher; wofi if the shell is down.
     Mod+D hotkey-overlay-title="Open app launcher" { spawn "sh" "-c" "qs -c qshell ipc call launcher toggle || wofi -S drun"; }
     // qshell's lock screen; swaylock if it cannot start (same command as
